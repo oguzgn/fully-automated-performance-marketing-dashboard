@@ -171,7 +171,7 @@ WITH
     IFNULL(ttiktok.Cost, 0) + 
     IFNULL(ttwitter.Cost, 0) + 
     IFNULL(tbing.Cost, 0) AS Costs_TRY,
-    (tmain.Cost * 1.2 + 
+    (tmain.Cost + 
      IFNULL(tfacebook.Cost, 0) + 
      IFNULL(ttaboola.Spend, 0) + 
      IFNULL(ttiktok.Cost, 0) + 

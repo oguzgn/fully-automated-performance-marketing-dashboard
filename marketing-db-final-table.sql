@@ -165,18 +165,18 @@ WITH
     AS Campaign_Content,
     SPLIT(tmain.Campaign, '|')[OFFSET(0)] AS Campaign,
     tmain.Source___Medium,
-    tmain.Cost * 1.2 + 
-    IFNULL(tfacebook.Cost * 1.07, 0) + 
-    IFNULL(ttaboola.Spend * 1.07, 0) + 
-    IFNULL(ttiktok.Cost * 1.07, 0) + 
-    IFNULL(ttwitter.Cost * 1.07, 0) + 
-    IFNULL(tbing.Cost * 1.07, 0) AS Costs_TRY,
+    tmain.Cost  + 
+    IFNULL(tfacebook.Cost, 0) + 
+    IFNULL(ttaboola.Spend, 0) + 
+    IFNULL(ttiktok.Cost, 0) + 
+    IFNULL(ttwitter.Cost, 0) + 
+    IFNULL(tbing.Cost, 0) AS Costs_TRY,
     (tmain.Cost * 1.2 + 
-     IFNULL(tfacebook.Cost * 1.07, 0) + 
-     IFNULL(ttaboola.Spend * 1.07, 0) + 
-     IFNULL(ttiktok.Cost * 1.07, 0) + 
-     IFNULL(ttwitter.Cost * 1.07, 0) + 
-     IFNULL(tbing.Cost * 1.07, 0)) / tusd.USD_TL AS Costs_USD,
+     IFNULL(tfacebook.Cost, 0) + 
+     IFNULL(ttaboola.Spend, 0) + 
+     IFNULL(ttiktok.Cost, 0) + 
+     IFNULL(ttwitter.Cost, 0) + 
+     IFNULL(tbing.Cost, 0)) / tusd.USD_TL AS Costs_USD,
     tmain.Clicks + 
     IFNULL(tfacebook.Link_clicks, 0) + 
     IFNULL(ttaboola.Clicks, 0) + 
